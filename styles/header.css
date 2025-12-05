@@ -176,3 +176,89 @@ cursor: pointer;
   
 
 }
+
+.subscriptions-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  border-bottom: 1px solid rgb(234, 234, 234);
+  background-color: white;
+  position: sticky;
+  top: 56px;
+  z-index: 100;
+}
+
+.subscriptions-left {
+  font-size: 20px;
+  font-weight: 500;
+  color: rgb(15, 15, 15);
+}
+
+.subscriptions-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.manage-button {
+  padding: 10px 16px;
+  background-color: rgb(255 255 255);
+  border: 1px solid rgb(204, 204, 204);
+  border-style: none;
+  border-radius: 18px;
+  font-family: 'Roboto', Arial;
+  font-size: 14px;
+  font-weight: 500;
+  color: rgb(6 95 212);
+  cursor: pointer;
+  transition: background-color 0.1s;
+}
+
+.manage-button:hover {
+  background-color: rgb(222 241 255);
+}
+
+.manage-button:active {
+  background-color: rgb(200 230 255);
+}
+
+/* Common button styles */
+.grid-button,
+.list-button {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.15s;
+}
+
+/* Hover effect */
+.grid-button:hover,
+.list-button:hover {
+  background-color: rgb(240, 240, 240);
+}
+
+/* Click effect (:active pseudo-class) */
+.grid-button:active,
+.list-button:active {
+  background-color: rgb(220, 220, 220);
+  transform: scale(0.95); /* Optional: slight shrink effect on click */
+}
+
+/* Grid button specific */
+.grid-button img {
+  width: 30px;
+  height: 25px;
+}
+
+/* List button specific */
+.list-button img {
+  width: 30px;
+  height: 50px;
+}
