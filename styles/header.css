@@ -34,9 +34,9 @@
 .right-section{
   width: 180px;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-right: 18px;
+  align-items:center;
+  justify-content:space-between;
+  margin-right: 22px;
   flex-shrink: 0;
 }
 .hamburger-menu{
@@ -117,8 +117,27 @@ cursor: pointer;
   border-radius: 20px;
   border: none;
   background-color: rgb(245, 245, 245);
-  
 }
+.div-create {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button-create {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: Roboto,Arial;
+  padding: 8px 16px;
+  background-color: rgb(245, 245, 245);
+  border: none;
+  color: black;
+  cursor: pointer;
+  border-radius: 20px;
+  transition: background-color 0.2s;
+}
+
 .search-bar{
   flex: 1;
   height: 38.6px;
@@ -180,6 +199,5 @@ cursor: pointer;
   padding-top: 2px;
   padding-bottom: 2px;
   border-radius: 10px;
-  
-
 }
+
