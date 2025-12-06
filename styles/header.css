@@ -34,10 +34,11 @@
 .right-section{
   width: 180px;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-right: 18px;
+  align-items:center;
+  justify-content:space-between;
+  margin-right: 47px;
   flex-shrink: 0;
+  gap: 22px;
 }
 .hamburger-menu{
 height: 24px;
@@ -109,7 +110,9 @@ cursor: pointer;
 {
   opacity: 1;
 }
-
+.search-button:hover{
+  background-color: rgb(210, 210, 210);
+}
 
 .voice-button{
   height: 40px;
@@ -117,7 +120,33 @@ cursor: pointer;
   border-radius: 20px;
   border: none;
   background-color: rgb(245, 245, 245);
-  
+}
+.voice-button:hover{
+  background-color:rgb(210, 210, 210) ;
+}
+.div-create {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button-create {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 500;
+  font-size: 15px;
+  font-family: Roboto,Arial;
+  padding: 8px 16px;
+  background-color: rgb(245, 245, 245);
+  border: none;
+  color: black;
+  cursor: pointer;
+  border-radius: 20px;
+  transition: background-color 0.2s;
+}
+.button-create:hover{
+  background-color:rgb(210, 210, 210);
 }
 .search-bar{
   flex: 1;
@@ -180,8 +209,6 @@ cursor: pointer;
   padding-top: 2px;
   padding-bottom: 2px;
   border-radius: 10px;
-  
-
 }
 
 .subscriptions-header {
