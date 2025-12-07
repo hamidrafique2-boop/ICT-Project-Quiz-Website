@@ -116,7 +116,9 @@ ICT-Project-Youtube-Clone/
 ├── shorts.html          # Shorts Page
 ├── subscription.html    # Subscriptions Page
 ├── you.html             # Profile/You Page
-└── README.md            # Project Documentation
+└── README.md            # Instructions for User
+└── ReadMe Images           
+  
 ```
 
 ---
