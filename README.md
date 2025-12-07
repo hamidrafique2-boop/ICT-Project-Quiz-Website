@@ -28,27 +28,27 @@ This project includes a wide range of features mimicking the real YouTube interf
 
 ### 1. Homepage
 The main landing page featuring a responsive video grid and sidebar navigation.
-![Homepage](thumbnails/iphone16.jpg)
+![Homepage](Readme%20Images/Homepage.png)
 *(Note: Replace with actual homepage screenshot)*
 
 ### 2. Shorts Page
 Immersive vertical video player interface.
-![Shorts Page](thumbnails/machine_short.jpg)
+![Shorts Page](Readme%20Images/Shorts.png)
 *(Note: Replace with actual shorts page screenshot)*
 
 ### 3. Subscriptions Page
 Manage and view updates from subscribed channels.
-![Subscriptions Page](thumbnails/fbise.avif)
+![Subscriptions Page](Readme%20Images/Subscription.png)
 *(Note: Replace with actual subscriptions page screenshot)*
 
 ### 4. You (Profile) Page
 User dashboard displaying history and playlists.
-![You Page](channel-pictures/channelpp.jpg)
+![You Page](Readme%20Images/Profile%20page.png)
 *(Note: Replace with actual profile page screenshot)*
 
 ### 5. Sidebar & Navigation
 Expandable sidebar with multiple sections (Home, Subscriptions, Explore).
-![Sidebar](icons/hamburger-menu.svg)
+![Sidebar](Readme%20Images/Side%20bar%20.png)
 
 ---
 
