@@ -24,44 +24,28 @@ This project was developed by the following team members:
 
 ## Folder Structure
 ```text
-C:.
-+---html
-|       about.html
-|       feedback.html
-|       history.html
-|       index.html
-|       quiz.html
-|       result.html
-|       
-+---images
-|       about_img.svg
-|       banner.png
-|       bg_cyber.svg
-|       bg_ict.svg
-|       bg_math.svg
-|       bg_pf.svg
-|       cpp_icon.png
-|       cyber_icon.svg
-|       ict_icon.svg
-|       math_icon.svg
-|       
-+---scripts
-|       common.js
-|       feedback.js
-|       history.js
-|       index.js
-|       quiz.js
-|       result.js
-|       
-\---styles
-        about.css
-        common.css
-        feedback.css
-        history.css
-        index.css
-        quiz.css
-        result.css
+.
+├── index.html
+├── pages/
+│   ├── about.html
+│   ├── feedback.html
+│   ├── history.html
+│   ├── quiz.html
+│   └── result.html
+├── images/
+│   ├── about_img.svg
+│   ├── cpp_icon.png
+│   ├── ... (and other assets)
+├── scripts/
+│   ├── common.js
+│   ├── index.js
+│   ├── quiz.js
+│   └── ...
+└── styles/
+    ├── common.css
+    ├── index.css
+    └── ...
 ```
 
 ## How to Run
-Simply open `html/index.html` in any modern web browser to start the application.
+Simply open `index.html` at the root directory in any modern web browser to start the application.
