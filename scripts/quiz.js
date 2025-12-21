@@ -9,7 +9,7 @@ function loadQuiz() {
     currentTopic = localStorage.getItem("quizTopic");
     if (!currentTopic) {
         alert("Invalid topic. Going Home.");
-        window.location.href = "index.html";
+        window.location.href = "../index.html";
         return;
     }
 
@@ -155,7 +155,7 @@ function finishQuiz() {
 
 function cancelQuiz() {
     clearInterval(timer);
-    window.location.href = "index.html";
+    window.location.href = "../index.html";
 }
 
 function saveQuizHistory(topic, score) {
