@@ -1,0 +1,102 @@
+/* --- Hero Section --- */
+.intro-text {
+    text-align: center;
+    margin: 3rem auto 4rem;
+    max-width: 700px;
+    animation: fadeInDown 0.8s ease-out;
+}
+
+.intro-text h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    color: var(--dark);
+    letter-spacing: -1px;
+}
+
+.intro-text p {
+    font-size: 1.25rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+/* --- Topic Grid --- */
+.topic-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    padding-bottom: 2rem;
+    animation: fadeInUp 0.8s ease-out 0.2s backwards;
+}
+
+.topic-card {
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 24px;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    box-shadow: var(--glass-shadow);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 400px;
+    justify-content: space-between;
+}
+
+.topic-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(99, 102, 241, 0.15);
+    background: rgba(255, 255, 255, 0.9);
+}
+
+body.dark-mode .topic-card {
+    background: rgba(30, 41, 59, 0.7);
+    border-color: rgba(255, 255, 255, 0.05);
+    color: var(--text-main);
+}
+
+.topic-icon {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 1.5rem;
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+    transition: transform 0.4s ease;
+    object-fit: contain;
+}
+
+.topic-card:hover .topic-icon {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.topic-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: var(--dark);
+}
+
+.start-btn {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    background: var(--gradient-main);
+    color: white;
+    border-radius: 50px;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.topic-card:hover .start-btn {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(99, 102, 241, 0.6);
+}
+
+@media (max-width: 768px) {
+    .intro-text h1 {
+        font-size: 2.5rem;
+    }
+}

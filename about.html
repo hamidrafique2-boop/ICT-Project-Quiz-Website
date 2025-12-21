@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QuizNova - About & Instructions</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles/common.css">
+    <link rel="stylesheet" href="styles/about.css">
 
     <!-- Using FontAwesome for Icons (Optional, checking if user has it, if not I will use text/emojis or robust SVG imports if I had them. 
          Since I assume no external libs unless asked, I will use Emoji/CSS shapes or basic text for simplicity as per "Beginner-friendly" constraint) 
@@ -43,15 +44,17 @@
 
             <p style="font-size: 1.1rem; line-height: 1.8; color: var(--text-muted); max-width: 800px; margin: 0 auto;">
                 Welcome to <strong>QuizNova</strong>, a dedicated interactive learning platform designed specifically
-                for ICT students.
+                for students to master core subjects.
                 Our purpose is to help you self-assess your knowledge in <span
-                    style="color: var(--primary);">Programming</span>,
-                <span style="color: var(--secondary);">Mathematics</span>, and <span style="color: var(--accent);">Cyber
-                    Security</span>.
+                    style="color: var(--primary);">Programming (C++)</span>,
+                <span style="color: var(--secondary);">Discrete Math</span>, <span style="color: var(--accent);">ICT
+                    Basics</span>,
+                <span style="color: #10b981;">Cyber Security</span>, <span style="color: #f59e0b;">Functional
+                    English</span>, and
+                <span style="color: #6366f1;">Islamic Studies</span>.
                 <br><br>
                 This project was built as an Academic ICT project to demonstrate modern web development practices while
-                keeping things simple,
-                friendly, and easy to use.
+                keeping things simple, friendly, and easy to use.
             </p>
         </div>
 
@@ -127,15 +130,15 @@
                 style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-top: 2rem;">
                 <div class="team-member">
                     <h3>Hamid Rafique</h3>
-                    <p>📞 +92 300 1234567</p>
+                    <a href="tel:+923001234567" class="contact-btn">📞 Call Hamid</a>
                 </div>
                 <div class="team-member">
                     <h3>Hashir Kamal Ahmed</h3>
-                    <p>📞 +92 312 9876543</p>
+                    <a href="tel:+923129876543" class="contact-btn">📞 Call Hashir</a>
                 </div>
                 <div class="team-member">
                     <h3>Wadia Sahar</h3>
-                    <p>📞 +92 333 5554443</p>
+                    <a href="tel:+923335554443" class="contact-btn">📞 Call Wadia</a>
                 </div>
             </div>
 
@@ -158,7 +161,7 @@
         &copy; 2025 QuizNova Education. | Academic Project
     </footer>
 
-    <script src="script.js"></script>
+    <script src="scripts/common.js"></script>
 </body>
 
 </html>

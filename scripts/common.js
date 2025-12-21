@@ -1,10 +1,8 @@
 /* 
-  QuizNova - Main JavaScript
-  Contains all quiz data, navigation logic, and storage handling.
+  QuizNova - Common JavaScript
+  Shared between all pages.
 */
 
-// GLOBAL QUESTION BANK (20+ Questions per topic)
-// We will randomly select 10 from here each time.
 const questionsDB = {
     "pf": [ // Programming Fundamentals (C++)
         { question: "Which symbol terminates a C++ statement?", options: [".", ";", ":", ","], correct: 1 },
@@ -140,248 +138,21 @@ const questionsDB = {
     ]
 };
 
-// Global State
-let currentTopic = "";
-let currentQuestions = [];
-let currentQuestionIndex = 0;
-let score = 0;
-
-/* --- Functions --- */
-
-// 1. Initialize Quiz
-function startQuiz(topic) {
-    localStorage.setItem("quizTopic", topic);
-    window.location.href = "quiz.html";
-}
-
-// 2. Load Quiz Logic (quiz.html)
-function loadQuiz() {
-    currentTopic = localStorage.getItem("quizTopic");
-    if (!currentTopic) {
-        alert("Invalid topic. Going Home.");
-        window.location.href = "index.html";
-        return;
-    }
-
-    // Set Header & Background
-    const topicNames = {
-        "pf": "Programming (C++)",
-        "dm": "Discrete Math",
-        "ict": "ICT",
-        "cyber": "Cyber Security",
-        "english": "Functional English",
-        "islamic": "Islamic Studies"
-    };
-    document.getElementById("topic-display").innerText = topicNames[currentTopic] || "Quiz";
-    document.body.classList.add(currentTopic);
-    initTheme();
-
-    // Load Local Questions
-    loadQuestionsFromDB();
-}
-
-// Fetch from Local DB
-function loadQuestionsFromDB() {
-    const loading = document.getElementById("loading");
-    if (loading) loading.style.display = "flex"; // Show loading briefly
-
-    // Simulate delay for effect (optional, or just instant)
-    setTimeout(() => {
-        let pool = questionsDB[currentTopic] || questionsDB["pf"];
-
-        // Shuffle the FULL pool
-        let shuffledPool = [...pool];
-        shuffleArray(shuffledPool);
-
-        // Pick first 10
-        currentQuestions = shuffledPool.slice(0, 10);
-
-        if (loading) loading.style.display = "none";
-
-        currentQuestionIndex = 0;
-        score = 0;
-        loadQuestion();
-        updateProgressBar();
-    }, 500);
-}
-
-// Simple Array Shuffle Function (Fisher-Yates)
-function shuffleArray(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
-    }
-}
-
-// 3. Render Question
-function loadQuestion() {
-    const q = currentQuestions[currentQuestionIndex];
-    if (!q) return;
-
-    document.getElementById("question-count").innerText = `Question ${currentQuestionIndex + 1} of ${currentQuestions.length}`;
-    document.getElementById("question-text").innerText = q.question;
-
-    const container = document.getElementById("options-container");
-    container.innerHTML = "";
-
-    q.options.forEach((opt, idx) => {
-        const btn = document.createElement("button");
-        btn.className = "option-btn";
-        btn.innerText = opt;
-        btn.onclick = () => checkAnswer(idx, btn);
-        container.appendChild(btn);
-    });
-
-    document.getElementById("next-btn").style.display = "none";
-}
-
-// 4. Check Answer
-function checkAnswer(selectedIdx, btnElement) {
-    const q = currentQuestions[currentQuestionIndex];
-    const correctIdx = q.correct;
-    const allBtns = document.querySelectorAll(".option-btn");
-
-    allBtns.forEach(b => b.disabled = true);
-
-    if (selectedIdx === correctIdx) {
-        btnElement.classList.add("correct");
-        score++;
-    } else {
-        btnElement.classList.add("wrong");
-        allBtns[correctIdx].classList.add("correct");
-    }
-
-    document.getElementById("next-btn").style.display = "block";
-}
-
-// 5. Next Question
-function nextQuestion() {
-    currentQuestionIndex++;
-    if (currentQuestionIndex < currentQuestions.length) {
-        loadQuestion();
-        updateProgressBar();
-    } else {
-        finishQuiz();
-    }
-}
-
-// 6. Progress Bar
-function updateProgressBar() {
-    const percent = ((currentQuestionIndex) / currentQuestions.length) * 100;
-    document.getElementById("progress-fill").style.width = percent + "%";
-}
-
-// 7. Finish & Save
-function finishQuiz() {
-    localStorage.setItem("quizScore", score);
-    saveQuizHistory(currentTopic, score);
-    window.location.href = "result.html";
-}
-
-// 8. Cancel Quiz (Direct Redirect)
-function cancelQuiz() {
-    // Direct redirect - no confirmation to ensure it works
-    window.location.href = "index.html";
-}
-
-// 9. Show Results
-function showResult() {
-    const s = localStorage.getItem("quizScore");
-    if (s === null) return;
-
-    document.getElementById("score-display").innerText = `${s} / 10`;
-
-    const msg = document.getElementById("performance-msg");
-    const numScore = parseInt(s);
-
-    if (numScore >= 8) {
-        msg.className = "badge excellent";
-        msg.innerText = "Excellent! Outstanding performance.";
-    } else if (numScore >= 5) {
-        msg.className = "badge good";
-        msg.innerText = "Good Job! Keep practicing.";
-    } else {
-        msg.className = "badge needs-improvement";
-        msg.innerText = "Needs Improvement. Don't give up!";
-    }
-}
-
-// 10. History Management
-function saveQuizHistory(topic, score) {
-    const history = JSON.parse(localStorage.getItem("quizHistory")) || [];
-    const date = new Date().toLocaleString();
-    const headers = {
-        "pf": "PF (C++)",
-        "dm": "Discrete Math",
-        "ict": "ICT",
-        "cyber": "Cyber Security",
-        "english": "Functional English",
-        "islamic": "Islamic Studies"
-    };
-
-    history.push({
-        topic: headers[topic] || topic,
-        score: score,
-        date: date
-    });
-
-    localStorage.setItem("quizHistory", JSON.stringify(history));
-}
-
-function loadHistory() {
-    const history = JSON.parse(localStorage.getItem("quizHistory")) || [];
-    const tbody = document.getElementById("history-body");
-
-    if (history.length === 0) {
-        tbody.innerHTML = "<tr><td colspan='3'>No quizzes attempted yet.</td></tr>";
-        return;
-    }
-
-    history.reverse().forEach(item => {
-        const row = `<tr><td>${item.topic}</td><td>${item.score} / 10</td><td>${item.date}</td></tr>`;
-        tbody.innerHTML += row;
-    });
-}
-
-function clearHistory() {
-    if (confirm("Clear history?")) {
-        localStorage.removeItem("quizHistory");
-        loadHistory();
-    }
-}
-
-// 11. Feedback
-function submitFeedback(event) {
-    if (event) event.preventDefault();
-    const name = document.getElementById("name").value;
-    alert(`Thank you, ${name}! Your feedback has been received.`);
-    window.location.href = "index.html";
-}
-
-// 12. Theme Toggle Logic
+// Theme Toggle Logic
 function toggleTheme() {
     const body = document.body;
     body.classList.toggle("dark-mode");
-
-    // Save preference
-    if (body.classList.contains("dark-mode")) {
-        localStorage.setItem("theme", "dark");
-    } else {
-        localStorage.setItem("theme", "light");
-    }
-
+    localStorage.setItem("theme", body.classList.contains("dark-mode") ? "dark" : "light");
     updateThemeIcon();
 }
 
 function updateThemeIcon() {
     const btn = document.getElementById("theme-toggle");
     if (!btn) return;
-
     const isDark = document.body.classList.contains("dark-mode");
     btn.innerHTML = isDark ? "☀️ Light" : "🌙 Dark";
 }
 
-// Initialize Theme
 function initTheme() {
     const savedTheme = localStorage.getItem("theme");
     if (savedTheme === "dark") {
@@ -390,25 +161,18 @@ function initTheme() {
     updateThemeIcon();
 }
 
-// 13. Mobile Menu Toggle & UI Enhancements
-document.addEventListener('DOMContentLoaded', () => {
-    initTheme();
-
+// Mobile Menu Toggle
+function initMobileMenu() {
     const mobileMenu = document.getElementById('mobile-menu');
     const navLinks = document.querySelector('.nav-links');
-
     if (mobileMenu && navLinks) {
         mobileMenu.addEventListener('click', () => {
             navLinks.classList.toggle('active');
-
-            // Optional: Animate hamburger to X
-            // mobileMenu.classList.toggle('is-active'); 
         });
     }
+}
 
-    // Add entry animation delays for cards
-    const cards = document.querySelectorAll('.topic-card');
-    cards.forEach((card, index) => {
-        card.style.animationDelay = `${index * 0.1}s`;
-    });
+document.addEventListener('DOMContentLoaded', () => {
+    initTheme();
+    initMobileMenu();
 });

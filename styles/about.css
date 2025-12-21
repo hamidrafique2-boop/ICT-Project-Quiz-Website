@@ -1,0 +1,98 @@
+.step-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.step-item {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    text-align: left;
+    background: rgba(255, 255, 255, 0.5);
+    padding: 1.5rem;
+    border-radius: 16px;
+    border: 1px solid var(--glass-border);
+}
+
+body.dark-mode .step-item {
+    background: rgba(30, 41, 59, 0.5);
+}
+
+.step-num {
+    background: var(--gradient-main);
+    color: white;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.rules-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.rule-box {
+    background: rgba(255, 255, 255, 0.5);
+    padding: 2rem;
+    border-radius: 20px;
+    border: 1px solid var(--glass-border);
+    text-align: center;
+}
+
+body.dark-mode .rule-box {
+    background: rgba(30, 41, 59, 0.5);
+}
+
+.contact-section {
+    background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+    color: white;
+    padding: 3rem;
+    border-radius: 24px;
+    margin-top: 3rem;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.contact-section h2,
+.contact-section p {
+    color: white;
+}
+
+.contact-btn {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50px;
+    margin-top: 1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.contact-btn:hover {
+    background: white;
+    color: #1e293b;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.team-member h3 {
+    margin-bottom: 0.5rem;
+}
+
+@media (max-width: 768px) {
+    .rules-grid {
+        grid-template-columns: 1fr;
+    }
+}

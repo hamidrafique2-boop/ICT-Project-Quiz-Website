@@ -5,10 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QuizNova - Quiz Mode</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles/common.css">
+    <link rel="stylesheet" href="styles/quiz.css">
 </head>
 
-<body onload="loadQuiz()">
+<body>
 
     <nav class="navbar">
         <a href="index.html" class="logo">QuizNova</a>
@@ -29,7 +30,10 @@
             <!-- Header: Topic & Question Count -->
             <div class="quiz-header">
                 <span id="topic-display" class="topic-label">Topic</span>
-                <span id="question-count" class="question-meta">Question 1 of 10</span>
+                <div class="header-right">
+                    <span id="timer-display" class="timer-tag">15s</span>
+                    <span id="question-count" class="question-meta">Question 1 of 10</span>
+                </div>
             </div>
 
             <!-- Progress Bar -->
@@ -52,7 +56,8 @@
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script src="scripts/common.js"></script>
+    <script src="scripts/quiz.js"></script>
 </body>
 
 </html>

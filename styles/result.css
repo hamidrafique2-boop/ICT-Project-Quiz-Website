@@ -1,0 +1,33 @@
+.result-score {
+    font-size: 6rem;
+    font-weight: 800;
+    background: var(--gradient-text);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin: 1rem 0;
+}
+
+.badge {
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1.2rem;
+    display: inline-block;
+    margin-bottom: 2rem;
+}
+
+.badge.excellent {
+    background: #ecfdf5;
+    color: #047857;
+}
+
+.badge.good {
+    background: #fffbeb;
+    color: #b45309;
+}
+
+.badge.needs-improvement {
+    background: #fef2f2;
+    color: #b91c1c;
+}
