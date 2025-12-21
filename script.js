@@ -173,7 +173,8 @@ function loadQuiz() {
         "islamic": "Islamic Studies"
     };
     document.getElementById("topic-display").innerText = topicNames[currentTopic] || "Quiz";
-    document.body.className = currentTopic;
+    document.body.classList.add(currentTopic);
+    initTheme();
 
     // Load Local Questions
     loadQuestionsFromDB();
@@ -350,8 +351,10 @@ function clearHistory() {
 }
 
 // 11. Feedback
-function sendFeedback() {
-    alert(`Thank you! Feedback received.`);
+function submitFeedback(event) {
+    if (event) event.preventDefault();
+    const name = document.getElementById("name").value;
+    alert(`Thank you, ${name}! Your feedback has been received.`);
     window.location.href = "index.html";
 }
 
